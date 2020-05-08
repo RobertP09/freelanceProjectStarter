@@ -10,9 +10,15 @@ console.log("Does it require a backend?")
 //Get access to file system
 const copyDest = () => {
 
-    
 }
 
 //pick template numerically
+const pickTemplate = () => {
+
+}
 
 //copy to new location
+
+const createInDest = () => {
+    
+}
