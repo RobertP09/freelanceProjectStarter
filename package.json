@@ -9,6 +9,7 @@
   "author": "Robert Perez",
   "license": "MIT",
   "dependencies": {
+    "fs-extra": "^9.0.0",
     "inquirer": "^7.1.0"
   }
 }
