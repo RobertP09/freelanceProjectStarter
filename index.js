@@ -12,14 +12,20 @@ console.log("Does it require a backend?"); */
 inquirer
 	.prompt([
 		{
+			type: "input",
+			name: "dirName",
+			message: "What is the name of the business?",
+		},
+		{
 			type: "list",
 			name: "template",
 			message: "Which template would you like to use?",
 			choices: ["backend", "no-backend"],
-		},
+		}
 	])
 	.then((answers) => {
-    const { template } = answers
-    pickTemplate(template);
-		// console.info("Template Selected:", answers.template);
+    	const { dirName, template } = answers
+		copyDest(dirName);
+		pickTemplate(template);
+		//console.info("Business Name:", dirName);
 	});

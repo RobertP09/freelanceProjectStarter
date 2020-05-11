@@ -1,9 +1,10 @@
 const path = require("path");
 const fs = require("fs-extra");
+const homedir = require('os').homedir();
 
 // Important Consts
 const baseTemplatePath = path.join(path.join(__dirname, "templates"));
-const copyLocationDir = path.join(__dirname, 'copies');
+let copyLocationDir;
 
 //Get current path
 exports.currentDir = () => {
@@ -11,7 +12,13 @@ exports.currentDir = () => {
 };
 
 //Get access to file system
-exports.copyDest = () => {};
+exports.copyDest = async (name) => {
+	try {
+		copyLocationDir = await fs.ensureDir(path.join(homedir, 'Documents',' business', `${name}`));
+	} catch (err) {
+		console.error(err)
+	}
+};
 
 //pick template numerically
 exports.pickTemplate = async (option) => {
@@ -27,7 +34,7 @@ exports.pickTemplate = async (option) => {
 const createInDest = async (directory) => {
 	try {
 		await fs.copy(directory, copyLocationDir);
-		console.log(`Created directory at ${copyLocationDir}`);
+		console.log(`Created directory at "${copyLocationDir}"`);
 	} catch (err) {
 		console.error(err);
 	}
