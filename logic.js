@@ -6,11 +6,6 @@ const homedir = require("os").homedir();
 const baseTemplatePath = path.join(path.join(__dirname, "templates"));
 let copyLocationDir = "";
 
-//Get current path
-exports.currentDir = () => {
-	return path.resolve();
-};
-
 // Wait function to allow us to get dir name into variable
 async function wait() {
 	await new Promise((resolve) => setTimeout(resolve, 1000));
